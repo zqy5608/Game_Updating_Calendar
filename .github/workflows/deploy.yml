@@ -1,0 +1,43 @@
+name: Deploy ICS Calendar
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Set up Python
+              uses: actions/steup-pytion@v4
+              with:
+                python-version: '3.11'
+            
+            - name: Generate ICS
+              run: |
+                python3 main.py
+            
+            - name: Upload artifact
+              uses: actions:upload-pages-artifact@v1
+              with:
+                path: .
+
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        permissions:
+            pages: write
+            id-token: write
+    
+        environment:
+            name: github-pages
+
+        steps:
+            - name: Deploy to Github Pages
+              uses: actions/deploy-pages@v2

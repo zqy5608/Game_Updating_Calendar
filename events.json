@@ -1,0 +1,17 @@
+{
+    "genshin": {
+        "title": "原神更新",
+        "start_date": "2025-11-18",
+        "interval": 42
+    },
+    "starrail": {
+        "title": "星铁更新",
+        "start_date": "2025-11-18",
+        "interval": 42
+    },
+    "zzz": {
+        "title": "绝区零更新",
+        "start_date": "2025-11-18",
+        "interval": 42
+    }
+}
